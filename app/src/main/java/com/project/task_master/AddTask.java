@@ -1,17 +1,11 @@
 package com.project.task_master;
 
 
-import static android.app.PendingIntent.getActivity;
-
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -29,27 +23,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.project.task_master.Model.ToDoModel;
 import com.project.task_master.Utils.DataBaseHelper;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class AddTask extends AppCompatActivity {
 
-    private EditText task_name,task_description;
-    RelativeLayout rldate,rltime,rlpriority,rlcategory,rlstatus;
-    private TextView due_date,due_time,priority,category,task_status;
-    private Button back_btn,save_btn;
+    private EditText task_name, task_description;
+    RelativeLayout rldate, rltime, rlpriority, rlcategory, rlstatus;
+    private TextView due_date, due_time, priority, category, task_status;
+    private Button back_btn, save_btn;
     private DataBaseHelper myDB;
     ArrayList<String> priorityList = new ArrayList<>();
 
     ArrayList<String> statusList = new ArrayList<>();
     ArrayList<String> categoriesList = new ArrayList<>();
 
-    public static AddTask newInstance()
-    {
+    public static AddTask newInstance() {
         return new AddTask();
     }
 
@@ -74,7 +65,6 @@ public class AddTask extends AppCompatActivity {
         rlcategory = findViewById(R.id.categoryRL);
         rlstatus = findViewById(R.id.statusRL);
         task_status = findViewById(R.id.status_text_view);
-
 
 
         priorityList.add("Low Priority");
@@ -111,8 +101,7 @@ public class AddTask extends AppCompatActivity {
             category.setText(b_category);
             task_status.setText(b_status);
 
-        }
-        else{
+        } else {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
             String currentTime = timeFormat.format(calendar.getTime());
@@ -176,8 +165,7 @@ public class AddTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = task_name.getText().toString().trim();
-                if(name.length()>0)
-                {
+                if (name.length() > 0) {
                     String desc = task_description.getText().toString();
                     String date = due_date.getText().toString();
                     String time = due_time.getText().toString();
@@ -185,11 +173,9 @@ public class AddTask extends AppCompatActivity {
                     String s_category = category.getText().toString();
                     String s_task_status = task_status.getText().toString();
 
-                    if(finalIsUpdate)
-                    {
-                        myDB.updateTask(bundle.getInt("id"), name,desc,bundle.getInt("status"),date,time,s_priority,s_category,s_task_status);
-                    }
-                    else {
+                    if (finalIsUpdate) {
+                        myDB.updateTask(bundle.getInt("id"), name, desc, bundle.getInt("status"), date, time, s_priority, s_category, s_task_status);
+                    } else {
                         ToDoModel item = new ToDoModel();
                         item.setTask_name(name);
                         item.setTask_description(desc);
@@ -204,14 +190,14 @@ public class AddTask extends AppCompatActivity {
                     }
 
                     finish();
-                }
-                else{
+                } else {
                     Toast.makeText(AddTask.this, "Please enter task name", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
+
     private void showDatePickerDialog() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -279,7 +265,7 @@ public class AddTask extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // Handle the item selection here
                         String selectedItem = itemsList.get(which);
-                        String newSelectedItem = selectedItem.substring(0,selectedItem.length()-9);
+                        String newSelectedItem = selectedItem.substring(0, selectedItem.length() - 9);
                         // TODO: Use the selected item as needed
                         // For example, display it in a TextView or perform an action
                         //Toast.makeText(getApplicationContext(), "Selected Item: " + selectedItem, Toast.LENGTH_SHORT).show();
@@ -289,6 +275,7 @@ public class AddTask extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
     private void showStatusSelectionDialog(ArrayList<String> itemsList) {
         CharSequence[] items = itemsList.toArray(new CharSequence[0]);
 
@@ -339,6 +326,7 @@ public class AddTask extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
     private void showAddCategoryDialog(final ArrayList<String> categoriesList) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add New Category");
@@ -371,7 +359,6 @@ public class AddTask extends AppCompatActivity {
 
         builder.show();
     }
-
 
 
 }

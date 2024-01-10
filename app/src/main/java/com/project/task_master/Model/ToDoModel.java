@@ -1,8 +1,9 @@
 package com.project.task_master.Model;
+
 public class ToDoModel {
-    private String task_name,task_description,category;
-    private int id,status;
-    private String due_date,priority,due_time,task_status;
+    private String task_name, task_description, category;
+    private int id, status;
+    private String due_date, priority, due_time, task_status;
 
     public String getTask_name() {
         return task_name;

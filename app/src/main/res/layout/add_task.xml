@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -12,46 +13,48 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/back_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/back_btn"
             android:layout_centerVertical="true"
             android:layout_marginStart="12dp"
-            android:backgroundTint="@color/black"
             android:background="@drawable/back_vector"
+            android:backgroundTint="@color/black"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="40dp"
+            android:gravity="center"
             android:text="Add Task"
             android:textColor="@color/black"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:layout_marginEnd="40dp"
-            android:layout_gravity="center"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <Button
+            android:id="@+id/save_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:id="@+id/save_btn"
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/dark_blue"
             android:textSize="20dp"
             tools:ignore="TextContrastCheck" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_add_task"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <EditText
             android:id="@+id/task_heading"
@@ -77,250 +80,260 @@
             android:textColor="@color/black"
             android:textStyle="normal" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp"
-        android:padding="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/bg_add_task"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <RelativeLayout
+            android:id="@+id/dateRL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/dateRL"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingStart="10dp"
             tools:ignore="InvalidId">
+
             <ImageView
+                android:id="@+id/clock_img_view"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
-                android:layout_gravity="start"
                 android:layout_centerVertical="true"
+                android:layout_gravity="start"
                 android:background="@drawable/vector_date"
-                android:id="@+id/clock_img_view"
-                android:backgroundTint="#ff0000"
-                />
+                android:backgroundTint="#ff0000" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Due Date"
-                android:textColor="@color/black"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@+id/clock_img_view"
-                android:textSize="18dp"
-                />
+                android:text="Due Date"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/date_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/date_text_view"
-                android:textColor="@color/black"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="35dp"
                 android:gravity="end"
                 android:maxLines="1"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="35dp"
-                android:layout_centerVertical="true"
-                android:textSize="18dp"/>
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <ImageView
+                android:id="@+id/id3"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:id="@+id/id3"
-                android:backgroundTint="@color/black"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/keyboard_arrow_vector"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/vector_keyboard_arrow"
+                android:backgroundTint="@color/black" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/timeRL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:paddingStart="10dp"
-            android:id="@+id/timeRL"
-            >
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
             <ImageView
+                android:id="@+id/time_img_view"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_gravity="start"
                 android:layout_centerVertical="true"
+                android:layout_gravity="start"
                 android:background="@drawable/vector_clock"
-                android:id="@+id/time_img_view"
-                android:backgroundTint="#00ff00"
-                />
+                android:backgroundTint="#00ff00" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time"
-                android:textColor="@color/black"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@+id/time_img_view"
-                android:textSize="18dp"
-                />
+                android:text="Time"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/time_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:id="@+id/time_text_view"
-                android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="35dp"
-                android:textSize="18dp"/>
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <ImageView
+                android:id="@+id/id2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:paddingEnd="10dp"
-                android:id="@+id/id2"
-                android:backgroundTint="@color/black"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/keyboard_arrow_vector"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/vector_keyboard_arrow"
+                android:backgroundTint="@color/black"
+                android:paddingEnd="10dp" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/priorityRL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:paddingStart="10dp"
-            android:id="@+id/priorityRL">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
             <ImageView
+                android:id="@+id/priority_image_view"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_gravity="start"
                 android:layout_centerVertical="true"
-                android:background="@drawable/baseline_flag_24"
-                android:id="@+id/priority_image_view"
-                android:backgroundTint="#FFA500"
-                />
+                android:layout_gravity="start"
+                android:background="@drawable/vector_flag"
+                android:backgroundTint="#FFA500" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Priority"
-                android:textColor="@color/black"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@+id/priority_image_view"
-                android:textSize="18dp"
-                />
+                android:text="Priority"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/priority_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="10dp"
-                android:id="@+id/priority_text_view"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="35dp"
+                android:minWidth="10dp"
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <ImageView
-                android:layout_width="30dp"
                 android:id="@+id/id1"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:paddingEnd="10dp"
-                android:backgroundTint="@color/black"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/keyboard_arrow_vector"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/vector_keyboard_arrow"
+                android:backgroundTint="@color/black"
+                android:paddingEnd="10dp" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/categoryRL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:paddingStart="10dp"
-            android:id="@+id/categoryRL">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
             <ImageView
+                android:id="@+id/category_img_view"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:layout_gravity="start"
                 android:layout_centerVertical="true"
+                android:layout_gravity="start"
                 android:background="@drawable/category_vector"
-                android:id="@+id/category_img_view"
-                android:backgroundTint="#0000ff"
-                />
+                android:backgroundTint="#0000ff" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category"
-                android:textColor="@color/black"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@+id/category_img_view"
-                android:textSize="18dp"
-                />
+                android:text="Category"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/category_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="10dp"
-                android:id="@+id/category_text_view"
-                android:layout_centerVertical="true"
-                android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="35dp"
-                android:textSize="18dp"/>
+                android:minWidth="10dp"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <ImageView
-                android:layout_width="30dp"
                 android:id="@+id/id4"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:paddingEnd="10dp"
-                android:backgroundTint="@color/black"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/keyboard_arrow_vector"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/vector_keyboard_arrow"
+                android:backgroundTint="@color/black"
+                android:paddingEnd="10dp" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/statusRL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:paddingStart="10dp"
-            android:id="@+id/statusRL">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
             <ImageView
+                android:id="@+id/status_img_view"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_gravity="start"
                 android:layout_centerVertical="true"
+                android:layout_gravity="start"
                 android:background="@drawable/img"
-                android:id="@+id/status_img_view"
-                android:backgroundTint="#9D00FD"
-                />
+                android:backgroundTint="#9D00FD" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
-                android:textColor="@color/black"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@+id/status_img_view"
-                android:textSize="18dp"
-                />
+                android:text="Status"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <TextView
+                android:id="@+id/status_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="10dp"
-                android:id="@+id/status_text_view"
-                android:layout_centerVertical="true"
-                android:textColor="@color/black"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="35dp"
-                android:textSize="18dp"/>
+                android:minWidth="10dp"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
             <ImageView
-                android:layout_width="30dp"
                 android:id="@+id/id5"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:paddingEnd="10dp"
-                android:backgroundTint="@color/black"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/keyboard_arrow_vector"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/vector_keyboard_arrow"
+                android:backgroundTint="@color/black"
+                android:paddingEnd="10dp" />
         </RelativeLayout>
     </LinearLayout>
 

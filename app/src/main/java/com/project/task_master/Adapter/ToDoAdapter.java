@@ -1,8 +1,6 @@
 package com.project.task_master.Adapter;
 
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,8 +22,6 @@ import com.project.task_master.Model.ToDoModel;
 import com.project.task_master.R;
 import com.project.task_master.Utils.DataBaseHelper;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> {
@@ -34,8 +30,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     private MainActivity activity;
     private DataBaseHelper myDB;
 
-    public ToDoAdapter(DataBaseHelper myDB,MainActivity activity)
-    {
+    public ToDoAdapter(DataBaseHelper myDB, MainActivity activity) {
         this.activity = activity;
         this.myDB = myDB;
     }
@@ -45,7 +40,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_layout,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_layout, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -53,11 +48,10 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ToDoModel item = mList.get(position);
 
-        if(item.getTask_description().trim().length()>0) {
+        if (item.getTask_description().trim().length() > 0) {
             holder.description.setVisibility(View.VISIBLE);
             holder.description.setText(item.getTask_description());
-        }
-        else{
+        } else {
             holder.description.setVisibility(View.GONE);
         }
         holder.date.setText(item.getDue_date());
@@ -67,12 +61,10 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         holder.task_status.setText(item.getTask_status());
         holder.mCheckBox.setText(item.getTask_name());
         holder.mCheckBox.setChecked(toBoolean(item.getStatus()));
-        if(toBoolean(item.getStatus()))
-        {
+        if (toBoolean(item.getStatus())) {
             int color = Color.parseColor("#D1FFBD");
             holder.cv.setCardBackgroundColor(color);
-        }
-        else{
+        } else {
             int color = Color.parseColor("#ffffff");
             holder.cv.setCardBackgroundColor(color);
         }
@@ -80,12 +72,11 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    myDB.updateStatus(item.getId(),1);
+                if (isChecked) {
+                    myDB.updateStatus(item.getId(), 1);
                     int color = Color.parseColor("#D1FFBD"); // Example: Parse color from hex code
                     holder.cv.setCardBackgroundColor(color);
-                }
-                else {
+                } else {
                     myDB.updateStatus(item.getId(), 0);
                     int color = Color.parseColor("#ffffff"); // Example: Parse color from hex code
                     holder.cv.setCardBackgroundColor(color);
@@ -94,21 +85,19 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         });
     }
 
-    public void setTasks(List<ToDoModel> mList)
-    {
+    public void setTasks(List<ToDoModel> mList) {
         this.mList = mList;
         notifyDataSetChanged();
     }
-    public void deleteTask(int position)
-    {
+
+    public void deleteTask(int position) {
         ToDoModel item = mList.get(position);
         myDB.deleteTask(item.getId());
         mList.remove(position);
-        if(mList.size()>0) {
+        if (mList.size() > 0) {
             MainActivity.imageView.setVisibility(View.INVISIBLE);
             MainActivity.m_textView.setVisibility(View.INVISIBLE);
-        }
-        else {
+        } else {
             MainActivity.imageView.setVisibility(View.VISIBLE);
             MainActivity.m_textView.setVisibility(View.VISIBLE);
         }
@@ -116,19 +105,18 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
 
     }
 
-    public void editItem(int position)
-    {
+    public void editItem(int position) {
         ToDoModel item = mList.get(position);
         Bundle bundle = new Bundle();
-        bundle.putInt("id",item.getId());
-        bundle.putString("task_name",item.getTask_name());
-        bundle.putInt("status",item.getStatus());
-        bundle.putString("task_description",item.getTask_description());
+        bundle.putInt("id", item.getId());
+        bundle.putString("task_name", item.getTask_name());
+        bundle.putInt("status", item.getStatus());
+        bundle.putString("task_description", item.getTask_description());
         bundle.putString("due_date", item.getDue_date());
-        bundle.putString("due_time" , item.getDue_time());
+        bundle.putString("due_time", item.getDue_time());
         bundle.putString("priority", item.getPriority());
         bundle.putString("category", item.getCategory());
-        bundle.putString("task_status",item.getTask_status());
+        bundle.putString("task_status", item.getTask_status());
 
         Intent intent = new Intent(activity, AddTask.class);
         intent.putExtras(bundle);
@@ -136,13 +124,11 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
 
     }
 
-    public boolean toBoolean(int num)
-    {
-        return num!=0 ;
+    public boolean toBoolean(int num) {
+        return num != 0;
     }
 
-    public Context getContext()
-    {
+    public Context getContext() {
         return activity;
     }
 
@@ -152,11 +138,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         return mList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         CheckBox mCheckBox;
 
         CardView cv;
-        TextView description,date,time, priority,category,task_status;
+        TextView description, date, time, priority, category, task_status;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cv = itemView.findViewById(R.id.cv);

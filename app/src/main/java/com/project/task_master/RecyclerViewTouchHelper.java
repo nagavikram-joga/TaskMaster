@@ -2,7 +2,6 @@ package com.project.task_master;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -13,6 +12,7 @@ import com.project.task_master.Adapter.ToDoAdapter;
 public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     private ToDoAdapter toDoAdapter;
+
     public RecyclerViewTouchHelper(ToDoAdapter toDoAdapter) {
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         this.toDoAdapter = toDoAdapter;
@@ -26,8 +26,7 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         final int position = viewHolder.getAdapterPosition();
-        if(direction==ItemTouchHelper.RIGHT)
-        {
+        if (direction == ItemTouchHelper.RIGHT) {
             //delete task
             AlertDialog.Builder builder = new AlertDialog.Builder(toDoAdapter.getContext());
             builder.setTitle("Delete Task");
@@ -45,9 +44,7 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-        }
-        else
-        {
+        } else {
 
             //edit the item
             toDoAdapter.editItem(position);
