@@ -38,7 +38,7 @@ The app utilizes local storage to save tasks, ensuring data persistence.
 ## Screenshots
 
 
-|      Home Screen      |    Add Task Screen    | Home Screen with Taks |    Edit Task Screen   |
+|      Home Screen      |    Add Task Screen    | Home Screen with Tasks |    Edit Task Screen   |
 |-----------------------|-----------------------|-----------------------|-----------------------|
 | <img src="screenshots/Screenshot_2024-01-10-13-53-31-23_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Home Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-13-53-44-85_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Add Task Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-14-01-15-92_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Home Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-14-01-35-35_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Add Task Screen" width="300"/> |
 
