@@ -35,12 +35,12 @@ The app utilizes local storage to save tasks, ensuring data persistence.
 3. **Updating Task Status**: Mark tasks as New, In Progress, or Completed as their status changes.
 4. **Editing and Deleting**: Modify task details or remove tasks as needed.
 
-## Screenshots (if available)
+## Screenshots
 
-![TaskMaster Screenshot 1](images/screenshot1.png)
-![TaskMaster Screenshot 2](images/screenshot2.png)
-![TaskMaster Screenshot 3](images/screenshot3.png)
-![TaskMaster Screenshot 4](images/screenshot4.png)
+
+|      Home Screen      |    Add Task Screen    | Home Screen with Taks |    Edit Task Screen   |
+|-----------------------|-----------------------|-----------------------|-----------------------|
+| <img src="screenshots/Screenshot_2024-01-10-13-53-31-23_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Home Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-13-53-44-85_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Add Task Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-14-01-15-92_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Home Screen" width="300"/> | <img src="screenshots/Screenshot_2024-01-10-14-01-35-35_3a29206e29cfdfa1a26cc68397c390bc.jpg" alt="Add Task Screen" width="300"/> |
 
 ## Installation
 
