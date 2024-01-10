@@ -37,18 +37,13 @@ The app utilizes local storage to save tasks, ensuring data persistence.
 
 ## Screenshots (if available)
 
-[Insert screenshots here if available]
+![TaskMaster Screenshot 1](images/screenshot1.png)
+![TaskMaster Screenshot 2](images/screenshot2.png)
+![TaskMaster Screenshot 3](images/screenshot3.png)
+![TaskMaster Screenshot 4](images/screenshot4.png)
 
 ## Installation
 
 1. Clone the repository.
 2. Open the project in Android Studio.
 3. Build and run the app on an Android emulator or a physical device.
-
-## Contributions
-
-Contributions are welcome! If you'd like to contribute to the development of TaskMaster, please follow the guidelines in [CONTRIBUTING.md](link-to-contributing-file).
-
-## License
-
-This project is licensed under the [MIT License](link-to-license-file).
